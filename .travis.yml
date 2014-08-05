@@ -1,0 +1,5 @@
+language: objective-c
+
+xcode_project: IVPhoneView.xcodeproj
+xcode_scheme: IVPhoneView
+xcode_sdk: iphonesimulator7.1
