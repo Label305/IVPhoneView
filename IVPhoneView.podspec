@@ -17,7 +17,6 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '7.0'
   s.requires_arc = true
 
-  sp.source_files = 'IVPhoneView/IVPhoneView.{h,m}'
-
-  s.default_subspec = 'Core'
+  s.source_files = 'IVPhoneView/IVPhoneView.{h,m}'
+  
 end
