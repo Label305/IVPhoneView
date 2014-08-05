@@ -21,7 +21,11 @@ Usage
 IVPhoneView *phoneView = [[IVPhoneView alloc] initWithFrame:CGRectMake(80, 120, 160, 335)];
 [phoneView setViewInPhone:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"myScreenshot"]]];
 
+phoneView.phoneColor = [UIColor whiteColor]; // For a white iPhone
+
 ```
+
+You can set the color and the bezzel of the iPhone graphic. [See the header file.](https://github.com/Label305/IVPhoneView/blob/master/IVPhoneView/IVPhoneView.h)
 
 License
 ---------
