@@ -1,7 +1,7 @@
 IVPhoneView [![Build Status](https://travis-ci.org/Label305/IVPhoneView.svg)](https://travis-ci.org/Label305/IVPhoneView)
 ===========
 
-View with a nice iPhone container. Use it to display something within an iPhone graphic. Can be used for onboarding experiences.
+View with a nice iPhone container. Use it to display something within an iPhone graphic. Can be used for onboarding experiences. The view is strechable in the correct way so you can create an iPhone 4, iPhone 5 with a single view.
 
 ![screen shot 2014-08-05 at 14 56 31](https://cloud.githubusercontent.com/assets/44893/3811487/f8ae6f10-1c9f-11e4-93cc-1045fe84ea2f.png)
 
