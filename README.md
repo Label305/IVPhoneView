@@ -11,7 +11,7 @@ CocoaPods
 Add the following lines to your Podfile:
 
 ```ruby
-pod 'IVPhoneView', '~> 0.1'
+pod 'IVPhoneView', '~> 0.2'
 ```
 
 Usage
@@ -22,6 +22,12 @@ IVPhoneView *phoneView = [[IVPhoneView alloc] initWithFrame:CGRectMake(80, 120, 
 [phoneView setViewInPhone:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"myScreenshot"]]];
 
 phoneView.phoneColor = [UIColor whiteColor]; // For a white iPhone
+```
+
+```objective-c
+IVPhoneView *landscapePhoneView = [[IVPhoneView alloc] initWithFrame:CGRectMake(-7, 30, 335, 160)];
+landscapePhoneView.orientation = IVPhoneViewOrientationLandscape;
+[landscapePhoneView setViewInPhone:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"myScreenshot"]]];
 ```
 
 You can set the color and the bezzel of the iPhone graphic. [See the header file.](https://github.com/Label305/IVPhoneView/blob/master/IVPhoneView/IVPhoneView.h)
