@@ -74,10 +74,18 @@
 {
     [super layoutSubviews];
 
-    self.viewInPhone.frame = CGRectMake(self.sideBezzel * 1.25,
-                                        self.topBezzel + self.sideBezzel * 0.25,
-                                        self.bounds.size.width - self.sideBezzel * 2.25,
-                                        self.bounds.size.height - self.sideBezzel * 0.25 - self.topBezzel * 2);
+    if (self.orientation == IVPhoneViewOrientationLandscape) {
+        self.viewInPhone.frame = CGRectMake(self.topBezzel,
+                                            self.sideBezzel * 1.25 ,
+                                            self.bounds.size.width - self.sideBezzel * 0.25 - self.topBezzel * 2,
+                                            self.bounds.size.height - self.sideBezzel * 2.25);
+    } else {
+        self.viewInPhone.frame = CGRectMake(self.sideBezzel * 1.25,
+                                            self.topBezzel + self.sideBezzel * 0.25,
+                                            self.bounds.size.width - self.sideBezzel * 2.25,
+                                            self.bounds.size.height - self.sideBezzel * 0.25 - self.topBezzel * 2);
+    }
+
     [self.viewInPhone setNeedsLayout];
     [self setNeedsDisplay];
 }
