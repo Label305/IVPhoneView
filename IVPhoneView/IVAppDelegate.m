@@ -20,8 +20,12 @@
     UIViewController *viewController = [UIViewController new];
     [self.window setRootViewController:viewController];
 
-    IVPhoneView *phoneView = [[IVPhoneView alloc] initWithFrame:CGRectMake(80, 120, 160, 335)];
-    [viewController.view addSubview:phoneView];
+    IVPhoneView *portraitPhoneView = [[IVPhoneView alloc] initWithFrame:CGRectMake(80, 210, 160, 335)];
+    [viewController.view addSubview:portraitPhoneView];
+
+    IVPhoneView *landscapePhoneView = [[IVPhoneView alloc] initWithFrame:CGRectMake(-7, 30, 335, 160)];
+    landscapePhoneView.orientation = IVPhoneViewOrientationLandscape;
+    [viewController.view addSubview:landscapePhoneView];
 
     [self.window makeKeyAndVisible];
     return YES;

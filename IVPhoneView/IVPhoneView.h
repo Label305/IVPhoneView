@@ -7,10 +7,20 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSUInteger, IVPhoneViewOrientation) {
+    IVPhoneViewOrientationPortrait = 0,
+    IVPhoneViewOrientationLandscape = 1
+};
+
 /**
  * View with a nice iPhone container. Use it to display something within an iPhone graphic.
  */
 @interface IVPhoneView : UIView
+
+/**
+ * Orientation of the phone view, landscape or portrait
+ */
+@property (readwrite, nonatomic) IVPhoneViewOrientation orientation;
 
 /**
  * Set this property to display a view within the phone

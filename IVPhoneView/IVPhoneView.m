@@ -6,6 +6,9 @@
 //
 
 #import "IVPhoneView.h"
+#import <QuartzCore/QuartzCore.h>
+
+#define radians(degrees) (degrees * M_PI/180)
 
 
 @implementation IVPhoneView
@@ -16,12 +19,14 @@
     if (self) {
 
         self.backgroundColor = [UIColor clearColor];
-        self.buttonColor = [UIColor colorWithRed: 0.643 green: 0.643 blue: 0.643 alpha: 1];
-        self.phoneColor = [UIColor blackColor];
+        _buttonColor = [UIColor colorWithRed: 0.643 green: 0.643 blue: 0.643 alpha: 1];
+        _phoneColor = [UIColor blackColor];
 
-        self.sideBezzel = 10;
-        self.topBezzel = 45;
-        self.cameraDimentions = 7;
+        _sideBezzel = 10;
+        _topBezzel = 45;
+        _cameraDimentions = 7;
+
+        _orientation = IVPhoneViewOrientationPortrait;
 
     }
     return self;
@@ -83,9 +88,20 @@
 
 - (void)drawRect:(CGRect)rect
 {
-    [self drawPhoneWithScreenWidth:rect.size.width - self.sideBezzel * 2.25
-                      screenHeight:rect.size.height - self.sideBezzel * 0.25 - self.topBezzel * 2
-                        sideBezzel:self.sideBezzel topBezzel:self.topBezzel cameraDimention:self.cameraDimentions];
+    if (self.orientation == IVPhoneViewOrientationLandscape) {
+        CGContextRef context = UIGraphicsGetCurrentContext();
+
+        CGContextRotateCTM( context, radians(90));
+        CGContextTranslateCTM( context, 0, -rect.size.width );
+
+        [self drawPhoneWithScreenWidth:rect.size.height - self.sideBezzel * 2.25
+                          screenHeight:rect.size.width - self.sideBezzel * 0.25 - self.topBezzel * 2
+                            sideBezzel:self.sideBezzel topBezzel:self.topBezzel cameraDimention:self.cameraDimentions];
+    } else {
+        [self drawPhoneWithScreenWidth:rect.size.width - self.sideBezzel * 2.25
+                          screenHeight:rect.size.height - self.sideBezzel * 0.25 - self.topBezzel * 2
+                            sideBezzel:self.sideBezzel topBezzel:self.topBezzel cameraDimention:self.cameraDimentions];
+    }
 }
 
 // From PaintCode
